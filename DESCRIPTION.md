@@ -156,12 +156,23 @@ Each module includes sample `.parameters.json` files. Copy and customize:
 - Policy assignments
 
 ### 2. Extend Modules
-You can import and extend these modules in your own Bicep files:
+You can import and reference these modules in your own Bicep files:
 ```bicep
-module managementGroups 'br/public:avm/ptn/authorization/management-groups:0.1.0' = {
+// Reference a module from this repository
+module managementGroups './infra-as-code/bicep/modules/managementGroups/managementGroups.bicep' = {
   name: 'myMgDeployment'
   params: {
-    // Your custom parameters
+    parTopLevelManagementGroupPrefix: 'myorg'
+    parTopLevelManagementGroupDisplayName: 'My Organization'
+    // Your other custom parameters
+  }
+}
+
+// Or use orchestration modules for combined deployments
+module hubSpoke './infra-as-code/bicep/orchestration/hubPeeredSpoke/hubPeeredSpoke.bicep' = {
+  name: 'hubSpokeDeployment'
+  params: {
+    // Your parameters
   }
 }
 ```
