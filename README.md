@@ -11,6 +11,8 @@
 
 Welcome to the Azure Landing Zones Bicep repository.
 
+> **📘 New to this repository?** Check out our [Simple Platform Landing Zone Guide](DESCRIPTION.md) for a beginner-friendly explanation of how to reuse this code for your platform deployments.
+
 Detailed information about how to use, deploy, and extend artifacts found in this repository can be found on our Wiki:
 
 - [Home][wiki_home]
